@@ -7,7 +7,7 @@ manifest:
   projects:
     - name: zmk
       remote: infused-kim
-      revision: chocofi/main
+      revision: main
       import: app/west.yml
   self:
     path: config
