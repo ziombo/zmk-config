@@ -16,7 +16,7 @@
 #include <dt-bindings/zmk/bt.h>
 
 // Custom includes
-#include "../zmk-nodefree-config/helper.h"
+#include <../zmk-nodefree-config/helper.h>
 
 ZMK_LAYER("Base",
 //  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
