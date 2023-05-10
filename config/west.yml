@@ -6,7 +6,7 @@ manifest:
       url-base: https://github.com/ziombo
   projects:
     - name: zmk
-      remote: zmkfirmware
+      remote: ziombo
       revision: main
       import: app/west.yml
   self:
