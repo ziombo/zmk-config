@@ -4,3 +4,5 @@
 
 /.vs/zmk-config
 /.vs
+/config/.vs/config/v17
+/config/.vs
