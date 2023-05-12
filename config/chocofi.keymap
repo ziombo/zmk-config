@@ -14,6 +14,8 @@
 #define NUMS 1
 #define BLTH 2
 
+#include "combos.dtsi"  // requires layer aliases
+
 // KEY ALIASES
 #define XXX &none
 #define ___ &trans
