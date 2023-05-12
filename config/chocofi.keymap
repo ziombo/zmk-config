@@ -14,7 +14,7 @@
 #define NUM 1
 #define NAV 2
 #define BLTH 3
-
+#define UC 5
 
 #include "combos.dtsi"  // requires layer aliases
 
