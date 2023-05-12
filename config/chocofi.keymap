@@ -25,6 +25,10 @@
 
 /* Global settings */
 
+/* map Zen's extra keys */
+#define X_LH  &smart_mouse  // thumb row, left
+#define X_RH  &bs_del       // thumb row, right
+
 #define QUICK_TAP_MS 175
 
 &sk {  // sticky-key config
@@ -77,6 +81,7 @@ ZMK_BEHAVIOR(rpar_gt, mod_morph,
     bindings = <&kp RPAR>, <&kp GT>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
 )
+
 
 
 
