@@ -87,6 +87,11 @@ ZMK_BEHAVIOR(smart_mouse, tri_state,
     ignored-layers = <MOUSE>;
 )
 
+ZMK_BEHAVIOR(sls, sticky_key,
+    release-after-ms = <1000>;
+    bindings = <&uc_shift>;
+    ignore-modifiers;
+)
 
 
 
