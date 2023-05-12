@@ -10,9 +10,11 @@
 #include "../zmk-nodefree-config/helper.h"
 
 // LAYERS
-#define BASE 0
-#define NUMS 1
-#define BLTH 2
+#define DEF 0
+#define NUM 1
+#define NAV 2
+#define BLTH 3
+
 
 #include "combos.dtsi"  // requires layer aliases
 
@@ -73,7 +75,7 @@ ZMK_LAYER(default_layer,
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp SLASH
 //  ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                  &mo NUMS      &kp TAB       &kp SPACE         &kp RET       &kp BSPC      &kp RCTL
+                                  &mo NUM      &kp TAB       &kp SPACE         &kp RET       &kp BSPC      &kp RCTL
 //                              ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
