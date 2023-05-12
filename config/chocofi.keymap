@@ -15,6 +15,7 @@
 #define NAV 2
 #define BLTH 3
 #define UC 5
+#define MOUSE 6
 
 #include "combos.dtsi"  // requires layer aliases
 #include "extra_keys.h"
