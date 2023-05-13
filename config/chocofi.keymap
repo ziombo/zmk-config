@@ -9,6 +9,7 @@
 // Custom includes
 #include "../zmk-nodefree-config/helper.h"
 #include "../zmk-nodefree-config/international_chars/polish.dtsi"
+#include "../zmk-nodefree-config/international_chars/greek.dtsi"
 
 // LAYERS
 #define DEF 0
