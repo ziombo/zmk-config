@@ -1,3 +1,4 @@
 [submodule "zmk-nodefree-config"]
 	path = zmk-nodefree-config
 	url = git@github.com:ziombo/zmk-nodefree-config.git
+	branch = main
