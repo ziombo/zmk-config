@@ -13,9 +13,10 @@
 // LAYERS
 #define DEF 0
 #define NUM 1
-#define NAV 2
+#define UC 2
 #define BLTH 3
-#define UC 5
+#define SYS 4
+#define NAV 5
 #define MOUSE 6
 
 
