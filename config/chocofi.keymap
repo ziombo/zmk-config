@@ -121,6 +121,26 @@ ZMK_BEHAVIOR(uc_shift, macro,
              , <&macro_release &mo UC &kp LSHFT>;
 )
 
+// tap: comma | shift + tap: semicolon | ctrl + shift + tap: <
+ZMK_BEHAVIOR(comma_morph, mod_morph,
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+    bindings = <&kp COMMA>, <&comma_inner_morph>;
+)
+ZMK_BEHAVIOR(comma_inner_morph, mod_morph,
+    bindings = <&kp SEMICOLON>, <&kp LESS_THAN>;
+    mods = <(MOD_LCTL|MOD_RCTL)>;
+)
+
+// tap: dot | shift + tap: colon | ctrl + shift + tap: >
+ZMK_BEHAVIOR(dot_morph, mod_morph,
+    bindings = <&kp DOT>, <&dot_inner_morph>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(dot_inner_morph, mod_morph,
+    bindings = <&kp COLON>, <&kp GREATER_THAN>;
+    mods = <(MOD_LCTL|MOD_RCTL)>;
+)
+
 
 
 
@@ -129,9 +149,9 @@ ZMK_LAYER(default_layer,
 //  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
       &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp SQT
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      &hml LGUI A   &hml LALT S   &hml LSHFT D  &hml LCTRL F  &kp G             &kp H         &hmr LCTRL J  &hmr RSHFT K  &kp L        &hmr RALT P
+      &hml LGUI A   &hml LALT S   &hml LSHFT D  &hml LCTRL F  &kp G             &kp H         &hmr LCTRL J  &hmr RSHFT K  &kp L         &hmr RALT P
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp SLASH
+      &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &comma_morph  &dot_morph    &kp SLASH
 //  ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                                   &swapper      &kp TAB       &kp SPACE         &lt NUM RET   &kp BSPC      &smart_shft
 //                              ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
