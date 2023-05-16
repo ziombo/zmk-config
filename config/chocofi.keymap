@@ -7,6 +7,7 @@
 #include <dt-bindings/zmk/bt.h>
 
 // Custom includes
+#define HOST_OS 2 // use alt for polish chars
 #include "../zmk-nodefree-config/helper.h"
 #include "../zmk-nodefree-config/international_chars/polish.dtsi"
 
