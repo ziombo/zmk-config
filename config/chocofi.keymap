@@ -110,7 +110,7 @@ ZMK_BEHAVIOR(lt_swap, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&tog NAV>, <&swapper>;
+    bindings = <&tog SYS>, <&swapper>;
 )
 
 
