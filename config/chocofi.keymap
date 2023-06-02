@@ -106,6 +106,13 @@ ZMK_BEHAVIOR(swapper, tri_state,
     ignored-key-positions = <LT2>;
 )
 
+ZMK_BEHAVIOR(lt_swap, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&lt>, <&swapper>;
+)
+
 
 // Sticky layer + sticky shift (workaround for issue #1421)
 ZMK_BEHAVIOR(sls, sticky_key,
@@ -155,7 +162,7 @@ ZMK_LAYER(def_layer,
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       &hml LGUI Z   &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &comma_morph  &dot_morph    &qexcl
 //  ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                  &lt SYS &swapper  &kp TAB   &kp SPACE         &lt NUM RET   &kp BSPC      &smart_shft
+                                 &lt_swap SYS 0 &kp TAB   &kp SPACE         &lt NUM RET   &kp BSPC      &smart_shft
 //                              ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
