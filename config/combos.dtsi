@@ -22,7 +22,7 @@
 
 /* Horizontal combos - left hand */
 ZMK_COMBO(esc,   &kp ESC,       LT3 LT2,     DEF NAV NUM, COMBO_TERM_FAST)
-ZMK_COMBO(ret,   &kp RETURN,    LT2 LT1,     DEF NAV NUM, COMBO_TERM_FAST)
+ZMK_COMBO(ret,   &kp DEL,    LT2 LT1,     DEF NAV NUM, COMBO_TERM_FAST)
 //ZMK_COMBO(mouse, &smart_mouse,  LT3 LT1,     DEF NAV NUM, COMBO_TERM_SLOW)
 
 ZMK_COMBO(tab,   HRC_TAB,       LM3 LM2,     DEF NAV NUM, COMBO_TERM_FAST)
@@ -45,10 +45,6 @@ ZMK_COMBO(lbkt,  &kp LBKT,      RB1 RB2,     DEF     NUM, COMBO_TERM_FAST)
 ZMK_COMBO(rbkt,  &kp RBKT,      RB2 RB3,     DEF     NUM, COMBO_TERM_FAST)
 ZMK_COMBO(lbrc,  &kp LBRC,      RB1 RB2,         NAV    , COMBO_TERM_FAST)
 ZMK_COMBO(rbrc,  &kp RBRC,      RB2 RB3,         NAV    , COMBO_TERM_FAST)
-
-/* Polish chars */
-ZMK_COMBO(pl,   &sl UC,        RT1 RT3,     DEF NAV NUM, COMBO_TERM_SLOW)
-ZMK_COMBO(cpl, &sls 0,        RT1 RT2 RT3, DEF NAV NUM, COMBO_TERM_SLOW)
 
 ZMK_COMBO(lpl,   &sl UC,        LT1 LT3,     DEF NAV NUM, COMBO_TERM_SLOW)
 ZMK_COMBO(clpl, &sls 0,        LT1 LT2 LT3, DEF NAV NUM, COMBO_TERM_SLOW)
