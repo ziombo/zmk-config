@@ -110,7 +110,7 @@ ZMK_BEHAVIOR(lt_swap, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&lt SYS>, <&swapper>;
+    bindings = <&mo SYS>, <&swapper>;
 )
 
 
