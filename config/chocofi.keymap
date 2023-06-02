@@ -110,7 +110,7 @@ ZMK_BEHAVIOR(lt_swap, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&lt>, <&swapper>;
+    bindings = <&tog NAV>, <&swapper>;
 )
 
 
@@ -162,7 +162,7 @@ ZMK_LAYER(def_layer,
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       &hml LGUI Z   &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &comma_morph  &dot_morph    &qexcl
 //  ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                 &lt_swap SYS   &kp TAB       &kp SPACE         &lt NUM RET   &kp BSPC      &smart_shft
+                                  &lt_swap      &kp TAB       &kp SPACE         &lt NUM RET   &kp BSPC      &smart_shft
 //                              ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
