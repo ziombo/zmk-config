@@ -14,8 +14,8 @@
 #define DEF 0
 #define NUM 1
 #define UC 2
-#define BLTH 3
-#define SYS 4
+#define SYS 3
+#define BLTH 4
 #define NAV 5
 #define MOUSE 6
 
@@ -155,7 +155,7 @@ ZMK_LAYER(def_layer,
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       &hml LGUI Z   &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &comma_morph  &dot_morph    &qexcl
 //  ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                  &lt SYS RET   &kp TAB     &kp SPACE         &lt NUM RET   &kp BSPC      &smart_shft
+                                  &lt SYS &swapper  &kp TAB   &kp SPACE         &lt NUM RET   &kp BSPC      &smart_shft
 //                              ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
