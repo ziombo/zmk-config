@@ -177,25 +177,25 @@ ZMK_BEHAVIOR(win_rght, macro,
 ZMK_BEHAVIOR(go_chnl, macro,
     wait-ms = <0>;
     tap-ms = <1>;
-    bindings = <&kp LESS_THAN &kp MINUS>
+    bindings = <&kp LESS_THAN &kp MINUS>;
 )
 
 ZMK_BEHAVIOR(go_eql, macro,
     wait-ms = <0>;
     tap-ms = <1>;
-    bindings = <&kp COLON &kp EQUAL>
+    bindings = <&kp COLON &kp EQUAL>;
 )
 
 ZMK_BEHAVIOR(vim_save, macro,
     wait-ms = <0>;
     tap-ms = <1>;
-    bindings = <&kp COLON &kp W>
+    bindings = <&kp COLON &kp W>;
 )
 
 ZMK_BEHAVIOR(vim_quit, macro,
     wait-ms = <0>;
     tap-ms = <1>;
-    bindings = <&kp COLON &kp Q>
+    bindings = <&kp COLON &kp Q>;
 )
 
 
