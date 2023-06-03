@@ -205,7 +205,10 @@ ZMK_BEHAVIOR(vim_quit, macro,
 ZMK_BEHAVIOR(vs_expl, macro,
     wait-ms = <0>;
     tap-ms = <1>;
-    bindings = <&kp LC(LBKT) &kp S>;
+    bindings = <&macro_press &kp LCTRL>
+             , <&kp LBKT>
+             , <&macro_release &kp LCTRL>
+             , <&kp S>
 )
                
 
