@@ -208,7 +208,7 @@ ZMK_BEHAVIOR(vs_expl, macro,
     bindings = <&macro_press &kp LCTRL>
              , <&kp LBKT>
              , <&macro_release &kp LCTRL>
-             , <&kp S>
+             , <&kp S>;
 )
                
 
