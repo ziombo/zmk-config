@@ -206,9 +206,9 @@ ZMK_BEHAVIOR(vs_expl, macro,
     wait-ms = <0>;
     tap-ms = <1>;
     bindings = <&macro_press &kp LCTRL>
-             , <&kp LBKT>
+             , <&macro_tap &kp LBKT>
              , <&macro_release &kp LCTRL>
-             , <&kp S>;
+             , <&macro_tap  &kp S>;
 )
                
 
