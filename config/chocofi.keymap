@@ -192,13 +192,13 @@ ZMK_BEHAVIOR(go_eql, macro,
 ZMK_BEHAVIOR(vim_save, macro,
     wait-ms = <0>;
     tap-ms = <1>;
-    bindings = <&kp COLON &kp W &kp RET>;
+    bindings = <&kp ESC &kp COLON &kp W &kp RET>;
 )
 
 ZMK_BEHAVIOR(vim_quit, macro,
     wait-ms = <0>;
     tap-ms = <1>;
-    bindings = <&kp COLON &kp Q &kp RET>;
+    bindings = <&kp ESC &kp COLON &kp Q &kp RET>;
 )
 
 // visual
