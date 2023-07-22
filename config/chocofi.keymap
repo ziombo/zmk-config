@@ -18,10 +18,11 @@
 #define FN 2
 #define NAV 3
 #define CODE 4
-#define SYS 5
-#define MOUSE 6
-#define UC 7
-#define BLTH 8
+#define LANG 5
+#define SYS 6
+#define MOUSE 7
+#define UC 8
+#define BLTH 9
 
 #include "combos.dtsi"  // requires layer aliases
 #include "extra_keys.h"
