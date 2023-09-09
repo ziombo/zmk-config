@@ -218,7 +218,7 @@ ZMK_BEHAVIOR(vs_expl, macro,
 
 // hold tap macros for keys
 ZMK_BEHAVIOR(p_f, macro,
-    wait-ms = <2000>;
+    wait-ms = <200>;
     tap-ms = <1>;
     bindings = <&macro_press &kp F>
              , <&macro_release &kp F>;
