@@ -231,7 +231,7 @@ ZMK_BEHAVIOR(vs_expl, macro,
         bindings = <&macro_press &kp KEY> \
                  , <&macro_release &kp KEY>;  \
     ) \
-    MAKE_HRM(hmlf, &kp, &p_f, KEYS_R THUMBS)  // left-hand macro HRMs
+    MAKE_HRM(HRM_NAME, &kp, &MACRO_NAME, KEYS_R THUMBS)  // left-hand macro HRMs
 
 MAKE_HRM_MACRO(hmlf, p_f, F)
 MAKE_HRM_MACRO(hmld, p_d, D)
