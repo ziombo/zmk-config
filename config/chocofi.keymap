@@ -66,6 +66,7 @@
         hold-trigger-key-positions = <TRIGGER_POS>; \
         hold-trigger-on-release; \
     )
+
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
@@ -224,11 +225,11 @@ ZMK_BEHAVIOR(vs_expl, macro,
 //)
 
 #define MAKE_HRM_MACRO(NAME, KEY) \
-    ZMK_BEHAVIOR(NAME, macro,
-        wait-ms = <200>;
-        tap-ms = <1>;
-        bindings = <&macro_press &kp KEY>
-                 , <&macro_release &kp KEY>;
+    ZMK_BEHAVIOR(NAME, macro, \
+        wait-ms = <200>;  \
+        tap-ms = <1>; \
+        bindings = <&macro_press &kp KEY> \
+                 , <&macro_release &kp KEY>;  \
     )
 
 MAKE_HRM_MACRO(p_f, F)
