@@ -230,7 +230,7 @@ MAKE_HRM_MACRO(hmlf, p_f, F)
 MAKE_HRM_MACRO(hmld, p_d, D)
 MAKE_HRM_MACRO(hmls, p_s, S)
 
-#define LSFHT_D &hmld LSHFT p_d
+#define LSFHT_D &hmld LSHFT &p_d
 
 ZMK_LAYER(def_layer,
 //  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
