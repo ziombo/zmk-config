@@ -213,13 +213,20 @@ ZMK_BEHAVIOR(vs_expl, macro,
              , <&macro_release &kp LCTRL>
              , <&macro_tap  &kp S>;
 )
-               
+        
+
+// hold tap macros for keys
+ZMK_BEHAVIOR(p_f, macro,
+    wait-ms = <0>;
+    tap-ms = <100>;
+    bindings = <&macro_tap &kp F>;
+)
 
 ZMK_LAYER(def_layer,
 //  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
       &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp SQT
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      &lt LANG A   &hml LALT S   &hml LSHFT D  &hml LCTRL F  &kp G             &kp H         &hmr LCTRL J  &hmr RSHFT K  &hmr LALT L   &lt LANG P
+      &lt LANG A   &hml LALT S   &hml LSHFT D  &hml LCTRL p_f &kp G             &kp H         &hmr LCTRL J  &hmr RSHFT K  &hmr LALT L   &lt LANG P
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       &hml LGUI Z   &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &comma_morph  &dot_morph    &qexcl
 //  ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
