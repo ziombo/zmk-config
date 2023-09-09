@@ -219,7 +219,7 @@ ZMK_BEHAVIOR(vs_expl, macro,
 // hold taps for macros
 #define MAKE_HRM_MACRO(HRM_NAME, MACRO_NAME, KEY) \
     ZMK_BEHAVIOR(MACRO_NAME, macro, \
-        wait-ms = <30>;  \
+        wait-ms = <5>;  \
         tap-ms = <1>; \
         bindings = <&macro_press &kp KEY> \
                  , <&macro_release &kp KEY>;  \
