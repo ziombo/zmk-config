@@ -226,17 +226,29 @@ ZMK_BEHAVIOR(vs_expl, macro,
     ) \
     MAKE_HRM(HRM_NAME, &kp, &MACRO_NAME, KEYS_R THUMBS)  // left-hand macro HRMs
 
+// left side
 MAKE_HRM_MACRO(hmlf, p_f, F)
 MAKE_HRM_MACRO(hmld, p_d, D)
 MAKE_HRM_MACRO(hmls, p_s, S)
 
+#define LCTRL_F &hmlf LCTRL &p_f
 #define LSFHT_D &hmld LSHFT &p_d
+#define LALT_S &hmls LALT &p_s
+
+// right side
+MAKE_HRM_MACRO(hmrj, p_j, J)
+MAKE_HRM_MACRO(hmrk, p_k, K)
+MAKE_HRM_MACRO(hmrl, p_l, L)
+
+#define LCTRL_J &hmrj LCTRL &p_j
+#define RSFHT_K &hmrk RSHFT &p_k
+#define LALT_L &hmrl LALT &p_l
 
 ZMK_LAYER(def_layer,
 //  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
       &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp SQT
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      &lt LANG A   &hmls LALT &p_s    LSFHT_D       &hmlf LCTRL &p_f   &kp G             &kp H         &hmr LCTRL J  &hmr RSHFT K  &hmr LALT L   &lt LANG P
+      &lt LANG A    LALT_S        LSFHT_D       LCTRL_F       &kp G             &kp H         LCTRL_J       RSFHT_K       LALT_L        &lt LANG P
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       &hml LGUI Z   &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &comma_morph  &dot_morph    &qexcl
 //  ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
