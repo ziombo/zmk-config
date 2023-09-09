@@ -67,7 +67,6 @@
         hold-trigger-on-release; \
     )
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
-MAKE_HRM(hmlf, &kp, &kp, KEYS_R THUMBS)  // left-hand macro HRMs
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
 MAKE_HRM(hml_repeat, &kp, &key_repeat, KEYS_R THUMBS)  // used for HRM-combo
@@ -217,18 +216,29 @@ ZMK_BEHAVIOR(vs_expl, macro,
         
 
 // hold tap macros for keys
-ZMK_BEHAVIOR(p_f, macro,
-    wait-ms = <200>;
-    tap-ms = <1>;
-    bindings = <&macro_press &kp F>
-             , <&macro_release &kp F>;
-)
+//ZMK_BEHAVIOR(p_f, macro,
+//    wait-ms = <200>;
+//    tap-ms = <1>;
+//    bindings = <&macro_press &kp F>
+//             , <&macro_release &kp F>;
+//)
+
+#define MAKE_HRM_MACRO(NAME, KEY) \
+    ZMK_BEHAVIOR(NAME, macro,
+        wait-ms = <200>;
+        tap-ms = <1>;
+        bindings = <&macro_press &kp KEY>
+                 , <&macro_release &kp KEY>;
+    )
+
+MAKE_HRM_MACRO(p_f, F)
+MAKE_HRM(hmlf, &kp, &p_f, KEYS_R THUMBS)  // left-hand macro HRMs
 
 ZMK_LAYER(def_layer,
 //  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
       &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp SQT
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      &lt LANG A   &hml LALT S   &hml LSHFT D  &hmlf LCTRL p_f &kp G             &kp H         &hmr LCTRL J  &hmr RSHFT K  &hmr LALT L   &lt LANG P
+      &lt LANG A   &hml LALT S   &hml LSHFT D  &hmlf LCTRL &p_f &kp G             &kp H         &hmr LCTRL J  &hmr RSHFT K  &hmr LALT L   &lt LANG P
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       &hml LGUI Z   &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &comma_morph  &dot_morph    &qexcl
 //  ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
