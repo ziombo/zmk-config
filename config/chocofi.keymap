@@ -110,6 +110,13 @@ ZMK_BEHAVIOR(delayed_tab, macro,
              , <&kp TAB>;
 )
 
+ZMK_BEHAVIOR(shift_tab, macro,
+    wait-ms = <1>;
+    tap-ms = <1>;
+    bindings = <&kt LS>
+             , <&kp TAB>
+             , <&kt LS>;
+)
 // Alt+Tab swapper, requires PR #1366
 ZMK_BEHAVIOR(swapper, tri_state,
     bindings = <&kt LALT>, <&delayed_tab>, <&kt LALT>;
@@ -259,7 +266,7 @@ ZMK_LAYER(func_layer,
 
 ZMK_LAYER(nav_layer,
 //  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-      ___           ___           &kp LS(TAB)   &swapper      ___               ___           ___           ___           ___           &kp C_VOL_UP
+      ___           ___           &shift_tab   &swapper      ___               ___           ___           ___           ___           &kp C_VOL_UP
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       ___           ___           ___           ___           ___               &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp C_VOL_DN         
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
