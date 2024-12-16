@@ -20,7 +20,6 @@ manifest:
       path: modules/tri-state
 
     - name: zmk
-      remote: urob
       path: .
       import:
         file: app/west.yml
