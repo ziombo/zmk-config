@@ -1,13 +1,14 @@
 ﻿/* source keypos definitions */
-#include "../zmk-nodefree-config/keypos_def/keypos_36keys.h"
-
+//#include "../zmk-nodefree-config/keypos_def/keypos_36keys.h"
+#include "zmk-helpers/key-labels/36.h"
 // ZMK includes
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
 // Custom includes
-#include "../zmk-nodefree-config/helper.h"
+//#include "../zmk-nodefree-config/helper.h"
+#include "zmk-helpers/helper.h"
 #include "../zmk-nodefree-config/international_chars/polish.dtsi"
 
 #define _BT_SEL_KEYS_ &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR
