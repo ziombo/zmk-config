@@ -104,8 +104,8 @@ ZMK_BEHAVIOR(smart_mouse, tri_state,
 /* Custom behaviors */
 
 ZMK_BEHAVIOR(delayed_tab, macro,
-    wait-ms = <500>;
-    tap-ms = <5>;
+    wait-ms = <100>;
+    tap-ms = <1>;
     bindings = <&kp LALT>
              , <&kp TAB>;
 )
