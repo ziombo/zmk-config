@@ -103,9 +103,15 @@ ZMK_BEHAVIOR(smart_mouse, tri_state,
 
 /* Custom behaviors */
 
+ZMK_BEHAVIOR(delayed_tab, macro,
+    wait-ms = <50>;
+    tap-ms = <5>;
+    bindings = <&kp TAB>;
+)
+
 // Alt+Tab swapper, requires PR #1366
 ZMK_BEHAVIOR(swapper, tri_state,
-    bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
+    bindings = <&kt LALT>, <&delayed_tab>, <&kt LALT>;
     ignored-key-positions = <LT2>;
 )
 
