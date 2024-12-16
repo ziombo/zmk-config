@@ -106,7 +106,8 @@ ZMK_BEHAVIOR(smart_mouse, tri_state,
 ZMK_BEHAVIOR(delayed_tab, macro,
     wait-ms = <500>;
     tap-ms = <5>;
-    bindings = <&kp TAB>;
+    bindings = <&kp LALT>
+             , <&kp TAB>;
 )
 
 // Alt+Tab swapper, requires PR #1366
