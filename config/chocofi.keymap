@@ -104,16 +104,16 @@ ZMK_BEHAVIOR(smart_mouse, tri_state,
 /* Custom behaviors */
 
 // Alt+Tab swapper, requires PR #1366
-ZMK_BEHAVIOR(swapper, tri_state,
-    bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
-    ignored-key-positions = <LT2>;
-)
+//ZMK_BEHAVIOR(swapper, tri_state,
+//    bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
+//    ignored-key-positions = <LT2>;
+//)
 
 ZMK_BEHAVIOR(lt_swap, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&mo>, <&swapper>;
+    bindings = <&mo>, <&kp TAB>;
 )
 
 
@@ -252,7 +252,7 @@ ZMK_LAYER(func_layer,
 
 ZMK_LAYER(nav_layer,
 //  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-      ___           ___           &kp LS(TAB)   &swapper      ___               ___           ___           ___           ___           &kp C_VOL_UP
+      ___           ___           &kp LS(TAB)   ___      ___               ___           ___           ___           ___           &kp C_VOL_UP
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       ___           ___           ___           ___           ___               &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp C_VOL_DN         
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
