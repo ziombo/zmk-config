@@ -10,19 +10,11 @@ manifest:
       url-base: https://github.com/urob
 
   projects:
-    - name: zmk-auto-layer
-      path: modules/auto-layer
-    - name: zmk-helpers
-      path: modules/helpers
-    - name: zmk-leader-key
-      path: modules/leader-key
-    - name: zmk-tri-state
-      path: modules/tri-state
-
     - name: zmk
       path: .
       import:
         file: app/west.yml
         path-prefix: zmk
+
   self:
     path: config
