@@ -110,13 +110,13 @@ ZMK_BEHAVIOR(clear_tab, macro,
 )
 
 ZMK_BEHAVIOR(delayed_tab, macro,
-    wait-ms = <10>;
+    wait-ms = <100>;
     tap-ms = <10>;
     bindings = <&none &kp TAB>;
 )
 
 ZMK_BEHAVIOR(back_tab, macro,
-    wait-ms = <10>;
+    wait-ms = <100>;
     tap-ms = <10>;
     bindings = <&macro_press &kp LSHFT>
              , <&macro_tap &kp TAB>
