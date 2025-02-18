@@ -102,20 +102,20 @@ ZMK_BEHAVIOR(smart_mouse, tri_state,
 )
 
 /* Custom behaviors */
-ZMK_BEHAVIOR(clear_tab, macro,
+ZMK_MACRO(clear_tab,
     wait-ms = <10>;
     tap-ms = <10>;
     bindings = <&macro_tap &kp ESC>
              , <&kt LALT>;
 )
 
-ZMK_BEHAVIOR(delayed_tab, macro,
+ZMK_MACRO(delayed_tab,
     wait-ms = <100>;
     tap-ms = <10>;
     bindings = <&none &kp TAB>;
 )
 
-ZMK_BEHAVIOR(back_tab, macro,
+ZMK_MACRO(back_tab,
     wait-ms = <100>;
     tap-ms = <10>;
     bindings = <&macro_press &kp LSHFT>
@@ -177,7 +177,7 @@ ZMK_BEHAVIOR(qexcl, mod_morph,
 )
 
 // workaround for showing windows menu on LG()
-ZMK_BEHAVIOR(win_lft, macro,
+ZMK_MACRO(win_lft,
     wait-ms = <0>;
     tap-ms = <1>;
     bindings = <&macro_press &kp LGUI>
@@ -185,7 +185,7 @@ ZMK_BEHAVIOR(win_lft, macro,
              , <&macro_release &kp LGUI>;
 )
 
-ZMK_BEHAVIOR(win_rght, macro,
+ZMK_MACRO(win_rght,
     wait-ms = <0>;
     tap-ms = <1>;
     bindings = <&macro_press &kp LGUI>
@@ -196,34 +196,21 @@ ZMK_BEHAVIOR(win_rght, macro,
 
 // CODING MACROS
 
-// golang
-ZMK_BEHAVIOR(go_chnl, macro,
-    wait-ms = <0>;
-    tap-ms = <1>;
-    bindings = <&kp LESS_THAN &kp MINUS>;
-)
-
-ZMK_BEHAVIOR(go_eql, macro,
-    wait-ms = <0>;
-    tap-ms = <1>;
-    bindings = <&kp COLON &kp EQUAL>;
-)
-
 // nvim
-ZMK_BEHAVIOR(vim_save, macro,
+ZMK_MACRO(vim_save,
     wait-ms = <0>;
     tap-ms = <1>;
     bindings = <&kp ESC &kp COLON &kp W &kp RET>;
 )
 
-ZMK_BEHAVIOR(vim_quit, macro,
+ZMK_MACRO(vim_quit,
     wait-ms = <0>;
     tap-ms = <1>;
     bindings = <&kp ESC &kp COLON &kp Q &kp RET>;
 )
 
 // visual
-ZMK_BEHAVIOR(vs_expl, macro,
+ZMK_MACRO(vs_expl,
     wait-ms = <0>;
     tap-ms = <1>;
     bindings = <&macro_press &kp LCTRL>
@@ -285,7 +272,7 @@ ZMK_LAYER(code_layer,
 //  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
       ___           ___           ___           ___           ___               &vim_quit     &vs_expl      ___           ___           ___          
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      ___           ___           ___           ___           ___               ___           &go_eql       &go_chnl      ___           ___                  
+      ___           ___           ___           ___           ___               ___           ___           ___           ___           ___                  
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       ___           ___           ___           ___           ___               ___           &vim_save     ___           ___           ___               
 //  ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┼─────────────╯
