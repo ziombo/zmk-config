@@ -57,11 +57,8 @@
 #define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                                      // thumbs
 
 #define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
-    ZMK_BEHAVIOR(NAME, hold_tap, \
-        flavor = "balanced"; \
-        tapping-term-ms = <280>; \
-        quick-tap-ms = <QUICK_TAP_MS>; \
-        bindings = <HOLD>, <TAP>; \
+    ZMK_HOLD_TAP(NAME,  bindings = <HOLD>, <TAP>; flavor = "balanced"; \
+        tapping-term-ms = <280>; quick-tap-ms = <QUICK_TAP_MS>;\
         hold-trigger-key-positions = <TRIGGER_POS>; \
         hold-trigger-on-release; \
     )
