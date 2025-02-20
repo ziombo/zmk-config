@@ -125,7 +125,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
     ignored-key-positions = <LT2>;
 )
 
-ZMK_BEHAVIOR(lt_swap, hold_tap,
+ZMK_HOLD_TAP(lt_swap,
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
