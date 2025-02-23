@@ -144,31 +144,16 @@ ZMK_MACRO(uc_shift,
              , <&macro_release &mo UC &kp LSHFT>;
 )
 
-// tap: comma | shift + tap: semicolon | ctrl + shift + tap: <
-ZMK_BEHAVIOR(comma_morph, mod_morph,
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-    bindings = <&kp COMMA>, <&comma_inner_morph>;
-)
-ZMK_BEHAVIOR(comma_inner_morph, mod_morph,
-    bindings = <&kp SEMICOLON>, <&kp LESS_THAN>;
-    mods = <(MOD_LCTL|MOD_RCTL)>;
-)
+// Tap: comma | Shift + tap: semicolon | Ctrl + shift + tap: <.
+SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &comma_inner_morph)
+SIMPLE_MORPH(comma_inner_morph, CTL, &kp SEMICOLON, &kp LESS_THAN)
 
-// tap: dot | shift + tap: colon | ctrl + shift + tap: >
-ZMK_BEHAVIOR(dot_morph, mod_morph,
-    bindings = <&kp DOT>, <&dot_inner_morph>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(dot_inner_morph, mod_morph,
-    bindings = <&kp COLON>, <&kp GREATER_THAN>;
-    mods = <(MOD_LCTL|MOD_RCTL)>;
-)
+// Tap: dot | Shift + tap: colon | Ctrl + shift + tap: >.
+SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &dot_inner_morph)
+SIMPLE_MORPH(dot_inner_morph, CTL, &kp COLON, &kp GREATER_THAN)
 
-// tap: qmark | shift + tap: excl
-ZMK_BEHAVIOR(qexcl, mod_morph,
-    bindings = <&kp QMARK>, <&kp EXCL>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-)
+// Tap: qmark | Shift + tap: excl.
+SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
 
 // workaround for showing windows menu on LG()
 ZMK_MACRO(win_lft,
