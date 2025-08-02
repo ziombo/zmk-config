@@ -145,12 +145,12 @@ ZMK_MACRO(uc_shift,
 )
 
 // Tap: comma | Shift + tap: semicolon | Ctrl + shift + tap: <.
-SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &comma_inner_morph)
-SIMPLE_MORPH(comma_inner_morph, CTL, &kp SEMICOLON, &kp LESS_THAN)
+SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &kp SEMICOLON)
+//SIMPLE_MORPH(comma_inner_morph, CTL, &kp SEMICOLON, &kp LESS_THAN)
 
 // Tap: dot | Shift + tap: colon | Ctrl + shift + tap: >.
-SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &dot_inner_morph)
-SIMPLE_MORPH(dot_inner_morph, CTL, &kp COLON, &kp GREATER_THAN)
+SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &kp COLON)
+//SIMPLE_MORPH(dot_inner_morph, CTL, &kp COLON, &kp GREATER_THAN)
 
 // Tap: qmark | Shift + tap: excl.
 SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
