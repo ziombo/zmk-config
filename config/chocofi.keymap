@@ -179,7 +179,7 @@ ZMK_MACRO(pt_run,
     bindings = <&macro_press &kp LGUI>
              , <&macro_press &kp LALT>
              , <&macro_tap &kp SPACE>
-             , <&macro_press &kp LALT>
+             , <&macro_release &kp LALT>
              , <&macro_release &kp LGUI>;
 )
 
