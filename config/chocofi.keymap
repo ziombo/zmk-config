@@ -10,7 +10,7 @@
 //#include "../zmk-nodefree-config/helper.h"
 #include "zmk-helpers/helper.h"
 
-#define _BT_SEL_KEYS_ &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR_ALL
+#define _BT_SEL_KEYS_ &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR
 
 // LAYERS
 #define DEF 0
