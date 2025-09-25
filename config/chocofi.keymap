@@ -181,7 +181,6 @@ ZMK_MACRO(pt_run,
              , <&macro_tap &kp SPACE>
              , <&macro_release &kp LALT>
              , <&macro_release &kp LGUI>
-             , <&macro_tap &kp LT>;
 )
 
 // CODING MACROS
