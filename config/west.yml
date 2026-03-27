@@ -20,7 +20,7 @@
 manifest:
   defaults:
     remote: urob
-    revision: v0.1
+    revision: v0.3
 
   remotes:
     - name: upstream
