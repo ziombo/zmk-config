@@ -1,0 +1,5 @@
+# Makes this config repo a Zephyr module so it can contribute C sources to the
+# ZMK app (needed for a custom display status screen). The ZMK build workflow
+# detects this file and passes -DZMK_EXTRA_MODULES pointing at the repo root.
+build:
+  cmake: .
