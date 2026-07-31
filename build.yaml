@@ -8,12 +8,12 @@
 # shield: [ "corne_left", "corne_right" ]
 # include:
 #   - board: bdn9_rev2
-#   - board: nice_nano_v2
+#   - board: nice_nano@2.0.0//zmk
 #     shield: reviung41
 #
 ---
 include:
-  - board: nice_nano_v2
+  - board: nice_nano@2.0.0//zmk
     shield: chocofi_left
-  - board: nice_nano_v2
+  - board: nice_nano@2.0.0//zmk
     shield: chocofi_right
