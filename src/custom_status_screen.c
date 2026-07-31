@@ -34,7 +34,9 @@ lv_obj_t *zmk_display_status_screen() {
 
     lv_obj_t *greeting = lv_label_create(screen);
     lv_label_set_text(greeting, "Bonsoir,\nElliot.");
-    lv_obj_set_style_text_font(greeting, lv_theme_get_font_small(screen), LV_PART_MAIN);
+    /* Name the font rather than going through lv_theme_get_font_small(), so the
+     * layout does not depend on a theme being active at init time. */
+    lv_obj_set_style_text_font(greeting, &lv_font_montserrat_12, LV_PART_MAIN);
     lv_obj_set_style_text_align(greeting, LV_TEXT_ALIGN_LEFT, LV_PART_MAIN);
     lv_obj_align(greeting, LV_ALIGN_TOP_LEFT, 0, 0);
 
