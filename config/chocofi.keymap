@@ -98,7 +98,7 @@ SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
 // any bound key left out would drop the layer when pressed, clicks included.
 ZMK_BEHAVIOR(smart_mouse, tri_state,
     bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
-    ignored-key-positions = <LT4 LT3 RT1 RT2 RT3 RM0 RM1 RM2 RM3 RM4 RB1 RB2 RB3 RH0 RH1>;
+    ignored-key-positions = <LT4 LT3 RT0 RT1 RT2 RT3 RM0 RM1 RM2 RM3 RB0 RB1 RB2 RB3 RB4 RH0>;
     ignored-layers = <MOUSE>;
 )
 
@@ -393,14 +393,19 @@ ZMK_LAYER(sys_layer,
 
 // Toggled by the Q+W combo (&smart_mouse), operated entirely with the right
 // hand. Any key not listed in smart_mouse's ignored-key-positions exits.
+//
+// vim layout: cursor is hjkl on the home row, scroll repeats the same four
+// columns one row up, buttons sit one row down with back/forward on the
+// outer columns. LCLK is repeated on the thumb so it can be held for
+// drag-select while the fingers move the cursor.
 ZMK_LAYER(mouse_layer,
 //  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-      ___           ___           ___           ___           ___               ___           &kp PG_UP     U_MS_U        &kp PG_DN     ___
+      ___           ___           ___           ___           ___               U_WH_L        U_WH_D        U_WH_U        U_WH_R        ___
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      ___           ___           ___           ___           ___               U_WH_L        U_MS_L        U_MS_D        U_MS_R        U_WH_R
+      ___           ___           ___           ___           ___               U_MS_L        U_MS_D        U_MS_U        U_MS_R        ___
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      ___           ___           ___           ___           ___               ___           &mkp LCLK     &mkp MCLK     &mkp RCLK     ___
+      ___           ___           ___           ___           ___               &mkp MB4      &mkp LCLK     &mkp MCLK     &mkp RCLK     &mkp MB5
 //  ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┼─────────────╯
-                                  ___           ___           ___               U_WH_U        U_WH_D        ___
+                                  ___           ___           ___               &mkp LCLK     ___           ___
 //                              ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
