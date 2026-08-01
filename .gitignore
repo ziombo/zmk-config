@@ -17,3 +17,6 @@ zmk
 # Ignore keymap-drawer output for now
 draw/base.svg
 draw/base.yaml
+
+# IDE
+.idea/
