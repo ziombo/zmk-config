@@ -6,6 +6,7 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // 10
 
 #include <dt-bindings/zmk/pointing.h>
+#include <input/processors.dtsi>
 
 // Config from @caksoylar, defaults in comments
 &mmv {
@@ -18,6 +19,34 @@
   acceleration-exponent = <1>;      // 0
   time-to-max-speed-ms = <40>;      // 300
   delay-ms = <0>;                   // 0
+};
+
+// Speed modes, applied while an extra layer is held on top of MOUSE. Both are
+// driven from the left thumbs: NAV is the outer one (falls through from the
+// base layer), FN is bound on the mouse layer's middle thumb. zip_xy_scaler
+// and zip_scroll_scaler are ZMK built-ins; the two cells are multiplier and
+// divisor, and they track remainders so a halved small movement is not
+// truncated to zero.
+&mmv_input_listener {
+  warp {
+    layers = <NAV>;
+    input-processors = <&zip_xy_scaler 3 1>;      // 3x
+  };
+  precision {
+    layers = <FN>;
+    input-processors = <&zip_xy_scaler 1 2>;      // half
+  };
+};
+
+&msc_input_listener {
+  warp {
+    layers = <NAV>;
+    input-processors = <&zip_scroll_scaler 2 1>;  // 2x
+  };
+  precision {
+    layers = <FN>;
+    input-processors = <&zip_scroll_scaler 1 2>;  // half
+  };
 };
 
 #define U_MS_U &mmv MOVE_UP

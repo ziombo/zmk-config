@@ -98,8 +98,8 @@ SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
 // any bound key left out would drop the layer when pressed, clicks included.
 ZMK_BEHAVIOR(smart_mouse, tri_state,
     bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
-    ignored-key-positions = <LT4 LT3 RT0 RT1 RT2 RT3 RM0 RM1 RM2 RM3 RB0 RB1 RB2 RB3 RB4 RH0>;
-    ignored-layers = <MOUSE>;
+    ignored-key-positions = <LT4 LT3 LH2 LH1 RT0 RT1 RT2 RT3 RM0 RM1 RM2 RM3 RB0 RB1 RB2 RB3 RB4 RH0>;
+    ignored-layers = <MOUSE NAV FN>;  // holding a speed mode must not cancel
 )
 
 /* Nav cluster: tap for the arrow, long-press for home/end/document ends. */
@@ -406,6 +406,8 @@ ZMK_LAYER(mouse_layer,
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       ___           ___           ___           ___           ___               &mkp MB4      &mkp LCLK     &mkp MCLK     &mkp RCLK     &mkp MB5
 //  ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┼─────────────╯
-                                  ___           ___           ___               &mkp LCLK     ___           ___
+//                              warp (&mo NAV, precision
+//                              via fallthrough)
+                                  ___           &mo FN        ___               &mkp LCLK     ___           ___
 //                              ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
