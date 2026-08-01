@@ -90,10 +90,15 @@ SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
 
 // smart-mouse, requires tri-state module. Triggered by the Q+W combo; stays
 // active while any mouse-layer key is pressed and toggles off on anything else.
-// Every key bound on mouse_layer must be listed here, clicks included.
+//
+// LT4 LT3 are the combo's own keys and must be listed: the tri-state exempts
+// only tri_state->position, which for a combo is the combo's virtual position,
+// not the physical keys. Without them the Q+W press ends the tri-state on the
+// same event that started it. Everything else here is a mouse_layer binding --
+// any bound key left out would drop the layer when pressed, clicks included.
 ZMK_BEHAVIOR(smart_mouse, tri_state,
     bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
-    ignored-key-positions = <RT1 RT2 RT3 RM0 RM1 RM2 RM3 RM4 RB1 RB2 RB3 RH0 RH1>;
+    ignored-key-positions = <LT4 LT3 RT1 RT2 RT3 RM0 RM1 RM2 RM3 RM4 RB1 RB2 RB3 RH0 RH1>;
     ignored-layers = <MOUSE>;
 )
 
