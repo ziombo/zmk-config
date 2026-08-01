@@ -26,6 +26,7 @@
 
 #include "combos.dtsi"  // requires layer aliases
 #include "extra_keys.h"
+#include "mouse.dtsi"   // defines U_MS_* / U_WH_* used by mouse_layer
 
 // KEY ALIASES
 #define XXX &none
@@ -65,8 +66,7 @@
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
-MAKE_HRM(hml_repeat, &kp, &key_repeat, KEYS_R THUMBS)  // used for HRM-combo
-MAKE_HRM(hmr_lpar_lt, &kp, &lpar_lt, KEYS_L THUMBS)    // "    "   "   "
+MAKE_HRM(hmr_lpar_lt, &kp, &lpar_lt, KEYS_L THUMBS)    // used for HRM-combo
 MAKE_HRM(hmr_rpar_gt, &kp, &rpar_gt, KEYS_L THUMBS)    // "    "   "   "
 
 
@@ -88,12 +88,40 @@ ZMK_BEHAVIOR(smart_shft, mod_morph,
 SIMPLE_MORPH(lpar_lt, SFT, &kp LPAR, &kp LT)
 SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
 
-// smart-mouse, requires PR #1366
+// smart-mouse, requires tri-state module. Triggered by the Q+W combo; stays
+// active while any mouse-layer key is pressed and toggles off on anything else.
+// Every key bound on mouse_layer must be listed here, clicks included.
 ZMK_BEHAVIOR(smart_mouse, tri_state,
     bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
-    ignored-key-positions = <LT1 LT3 RT1 RT2 RT3 RM1 RM2 RM3 RH0 RH1>;
+    ignored-key-positions = <RT1 RT2 RT3 RM0 RM1 RM2 RM3 RM4 RB1 RB2 RB3 RH0 RH1>;
     ignored-layers = <MOUSE>;
 )
+
+/* Nav cluster: tap for the arrow, long-press for home/end/document ends. */
+
+// Trigger tap-action on all interrupts.
+#define MT_CORE \
+    flavor = "tap-preferred"; \
+    tapping-term-ms = <220>; \
+    quick-tap-ms = <220>; \
+    hold-trigger-key-positions = <0>;
+
+&mt { MT_CORE };
+
+ZMK_HOLD_TAP(mt_home, bindings = <&masked_home>, <&kp>; MT_CORE)
+ZMK_HOLD_TAP(mt_end, bindings = <&masked_end>, <&kp>; MT_CORE)
+
+// Mask CTRL on left/right hold to avoid accidental jumps to start/end of doc.
+#define MASK_MODS(NAME, MODS, BINDING) \
+    ZMK_MOD_MORPH(NAME, bindings = <BINDING>, <BINDING>; mods = <MODS>;)
+
+MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
+MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
+
+#define NAV_LEFT  &mt_home 0   LEFT  // tap: left  | long-tap: start of line
+#define NAV_RIGHT &mt_end 0    RIGHT // tap: right | long-tap: end   of line
+#define NAV_UP    &mt LC(HOME) UP    // tap: up    | long-tap: start of doc
+#define NAV_DOWN  &mt LC(END)  DOWN  // tap: down  | long-tap: end   of doc
 
 /* Custom behaviors */
 ZMK_MACRO(clear_tab,
@@ -309,7 +337,7 @@ ZMK_LAYER(nav_layer,
 //  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
       ___           ___           &back_tab     &swapper      &alttab_term      &rsz_left     &rsz_down     &rsz_up       &rsz_right    &kp C_VOL_UP
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      ___           ___          &vir_desk_lft &vir_desk_rght ___               &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp C_VOL_DN         
+      ___           ___          &vir_desk_lft &vir_desk_rght ___               NAV_LEFT      NAV_DOWN      NAV_UP        NAV_RIGHT     &kp C_VOL_DN
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                                  _BT_SEL_KEYS_                                  ___           &win_lft      &win_rght     ___           &kp C_PP          
 //  ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┼─────────────╯
@@ -335,8 +363,39 @@ ZMK_LAYER(lang_layer,
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       &kp RA(A)     &kp RA(S)     ___           ___           ___               ___           ___           ___           &kp RA(L)     ___
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      &kp RA(Z)     &kp RA(X)     &kp RA(C)     ___           ___               &kp RA(N)     ___           ___           ___           ___              
+      &kp RA(Z)     &kp RA(X)     &kp RA(C)     ___           ___               &kp RA(N)     ___           ___           ___           ___
 //  ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┼─────────────╯
                                   ___           ___           ___               ___           ___           ___
-//                              ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯      
+//                              ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+)
+
+// Hold NAV (left thumb) + NUM (right thumb) to reach the sys layer.
+ZMK_CONDITIONAL_LAYER(sys, NAV NUM, SYS)
+
+// Reset behaviors run on whichever half the key was pressed on, so both
+// halves need their own copy -- one key cannot flash the other side.
+ZMK_LAYER(sys_layer,
+//  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+      ___           ___           ___           ___           ___               ___           ___           ___           ___           ___
+//  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+      ___           ___           ___           ___           &bootloader       &bootloader   ___           ___           ___           ___
+//  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+      ___           ___           ___           ___           &sys_reset        &sys_reset    ___           ___           ___           ___
+//  ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┼─────────────╯
+                                  ___           ___           ___               ___           ___           ___
+//                              ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+)
+
+// Toggled by the Q+W combo (&smart_mouse), operated entirely with the right
+// hand. Any key not listed in smart_mouse's ignored-key-positions exits.
+ZMK_LAYER(mouse_layer,
+//  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+      ___           ___           ___           ___           ___               ___           &kp PG_UP     U_MS_U        &kp PG_DN     ___
+//  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+      ___           ___           ___           ___           ___               U_WH_L        U_MS_L        U_MS_D        U_MS_R        U_WH_R
+//  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+      ___           ___           ___           ___           ___               ___           &mkp LCLK     &mkp MCLK     &mkp RCLK     ___
+//  ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┼─────────────╯
+                                  ___           ___           ___               U_WH_U        U_WH_D        ___
+//                              ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
