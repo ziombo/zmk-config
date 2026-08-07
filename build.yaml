@@ -13,7 +13,12 @@
 #
 ---
 include:
+  # DIAGNOSTIC: the snippet supplies the cdc-acm-uart node the console needs.
+  # Setting CONFIG_ZMK_USB_LOGGING by hand fails Kconfig -- it selects
+  # UART_INTERRUPT_DRIVEN, which needs SERIAL_SUPPORT_INTERRUPT, which is only
+  # true once a UART exists in the devicetree. Left half only.
   - board: nice_nano@2.0.0//zmk
     shield: chocofi_left
+    snippet: zmk-usb-logging
   - board: nice_nano@2.0.0//zmk
     shield: chocofi_right
