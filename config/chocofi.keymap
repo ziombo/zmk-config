@@ -5,6 +5,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
 // Custom includes
 //#include "../zmk-nodefree-config/helper.h"
@@ -383,7 +384,8 @@ ZMK_CONDITIONAL_LAYER(sys, NAV NUM, SYS)
 // halves need their own copy -- one key cannot flash the other side.
 ZMK_LAYER(sys_layer,
 //  ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                                 _BT_SEL_KEYS_                                  ___           ___           ___           ___           ___
+//                                                                              force output, so BLE can be tested while on USB power
+                                 _BT_SEL_KEYS_                                  &out OUT_USB  &out OUT_BLE  ___           ___           ___
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       ___           ___           ___           ___           &bootloader       &bootloader   ___           ___           ___           ___
 //  ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
